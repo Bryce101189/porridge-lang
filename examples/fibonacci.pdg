@@ -1,0 +1,33 @@
+; written by Bryce101189 on 2020-12-06
+; this program simply prints the first ten digits of the fibonacci sequence to the terminal
+
+nl!++++++++++   ; newline character
+i!++++++++++
+x!y!z!
+
+add_x {         ; adds the value of 'x' to 'z'
+    x~<
+    z+
+    x-
+    >add_x
+}
+
+start {
+    i~<
+    i-
+
+    z=y
+    >add_x
+
+    #z
+    @nl
+
+    x=y
+    y=z
+
+    y~+
+
+    >start
+}
+
+>start

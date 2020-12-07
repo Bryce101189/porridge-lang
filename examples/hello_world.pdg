@@ -1,0 +1,18 @@
+; written by Bryce101189 on 2020-12-06
+; this program simply prints the string "Hello, World!" to the terminal
+
+c!++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++@c    ; prints 'H'
++++++++++++++++++++++++++++++@c                                                 ; prints 'e'
++++++++@c@c                                                                     ; prints 'l' twice
++++@c                                                                           ; prints 'o'
+
+s!++++++++++++++++++++++++++++++++++++++++++++@s                                ; prints ','
+------------@s                                                                  ; prints ' '
+
+c------------------------@c                                                     ; prints 'W'
+++++++++++++++++++++++++@c                                                      ; prints 'o'
++++@c                                                                           ; prints 'r'
+------@c                                                                        ; prints 'l'
+--------@c                                                                      ; prints 'd'
+
+s+@s                                                                            ; prints '!'
