@@ -35,6 +35,7 @@ Porridge uses a small, simple set of instructions. The instructions are listed i
 These simple instructions can be put together to make both simple and complex applications. This simple application will print the numbers 1-10 to your terminal.
 
 ```
+nl!++++++++++
 n!++++++++++
 i!
 
@@ -44,6 +45,7 @@ loop {
 
     i+
     #i
+    @nl
 
     >loop
 }
