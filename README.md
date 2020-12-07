@@ -53,4 +53,5 @@ loop {
 
 ### Licence
 
-Porridge comes with no license. Feel free to use it however you like! Just use it at your own risk, knowing that I am not responsible for anything that happens to your computer as a result of using it (not that anything to my knowledge, should, or even could, do such a thing).
+Porridge is licensed under the MIT License.
+See [LICENSE.md](LICENSE.md).
