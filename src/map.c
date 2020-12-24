@@ -4,7 +4,6 @@
 
 #include "map.h"
 
-
 map_t *init_map()
 {
     map_t *map = malloc(sizeof(map));
@@ -107,8 +106,6 @@ void map_clear(map_t *map)
     
     map->len = 0;
 }
-
-#include <stdio.h>
 
 bool map_contains_key(map_t *map, char *key)
 {
