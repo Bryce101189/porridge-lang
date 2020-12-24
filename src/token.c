@@ -30,5 +30,5 @@ void destroy_token(token_t *token)
 bool is_valid_symbol(char c)
 {
     return c == '!' || c == '{' || c == '}' || c == '+' || c == '-' || c == '=' || c == '?'
-        || c == '~' || c == '#' || c == '$' || c == '>' || c == '<' || c == ';';
+        || c == '~' || c == '#' || c == '@' || c == '$' || c == '>' || c == '<' || c == ';';
 }
