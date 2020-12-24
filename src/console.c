@@ -20,14 +20,14 @@ char *get_line(char *text, int line)
     // Get start position
     for(int i = 0; i < len; i++)
     {
-        if(text[i] == '\n' || text[i] == '\r')
-            lines++;
-
         if(lines == line || i + 1 == len)
         {
-            start = i + 1;
+            start = i;
             break;
         }
+
+        if(text[i] == '\n' || text[i] == '\r')
+            lines++;
     }
 
     // Get end position
