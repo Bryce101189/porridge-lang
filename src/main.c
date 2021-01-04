@@ -10,11 +10,12 @@
 #include "interpreter.h"
 
 #define STR_ENDS_WITH(str, substr) (strlen(str) > strlen(substr) && !strcmp(str + strlen(str) - strlen(substr), substr))
+#define VERSION_NUMBER "1.0.2"
 
 void start(int argc, char const *argv[])
 {
     const char *file_name = NULL;
-    bool verbose = false;
+    bool silent = false;
 
     if(argc < 2)
     {
@@ -37,7 +38,7 @@ void start(int argc, char const *argv[])
         (
             "porridge help menu", COL_BLUE,
             NULL,
-            "basic usage: ./porridge [source file or command]"
+            "basic usage: porridge [source file or command]"
         );
 
         printf("\n");   // Padding
@@ -48,11 +49,31 @@ void start(int argc, char const *argv[])
             "-h or --help",
             "reveals a basic usage guide and command list"
         );
+
+        printf("\n");
+
         print_with_header     // Enable verbose feedback
         (
-            "verbose", COL_MAGENTA,
-            "-v or --verbose",
-            "provides the user with detailed descriptions as to the current state of the program"
+            "version", COL_MAGENTA,
+            "-v or --version",
+            "displays the version number of the version of porridge currently being used"
+        );
+        print_with_header
+        (
+            "silent mode", COL_MAGENTA,
+            "-s or --silent",
+            "enables silent mode, disabling detailed descriptions regarding the state of the program (errors messages will still be displayed)"
+        );
+
+        return;
+    }
+    else if(!strcmp(arg, "-v") || !strcmp(arg, "--version"))
+    {
+        print_with_header
+        (
+            "version number", COL_BLUE,
+            NULL,
+            VERSION_NUMBER
         );
 
         return;
@@ -92,9 +113,9 @@ void start(int argc, char const *argv[])
     {
         arg = argv[i];
     
-        if(!strcmp(arg, "-v") || !strcmp(arg, "--verbose"))
+        if(!strcmp(arg, "-s") || !strcmp(arg, "--silent"))
         {
-            verbose = true;
+            silent = true;
         }
         else
         {
@@ -135,7 +156,7 @@ void start(int argc, char const *argv[])
 
     // Start scanning
 
-    if(verbose)
+    if(!silent)
         printf("Scanning...\n");
 
     scanner_t *scan = init_scanner(content);
@@ -162,7 +183,7 @@ void start(int argc, char const *argv[])
     if(!clean)
         return;
 
-    if(verbose)
+    if(!silent)
         printf("Running...\n\n");
 
     interpreter_t *inter = init_interpreter(scan, tokens, tlen);
